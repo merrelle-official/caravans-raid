@@ -3,7 +3,6 @@ import { useArmyStore } from "@/stores/army";
 import HeroSlot from "./HeroSlot.vue";
 
 const armyStore = useArmyStore();
-const frontline = armyStore.squad.frontline as (string | null)[];
 </script>
 
 <template>
@@ -11,7 +10,7 @@ const frontline = armyStore.squad.frontline as (string | null)[];
     <h2 class="heroes-grid__title">Бойцы на фронте</h2>
     <div class="heroes-grid">
       <HeroSlot
-        v-for="(heroId, i) in frontline"
+        v-for="(heroId, i) in armyStore.squad.frontline"
         :key="heroId ?? i"
         :hero="heroId ? armyStore.heroes[heroId] : null"
         :slot="{ type: 'frontline', index: i }"
