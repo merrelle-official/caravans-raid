@@ -85,7 +85,7 @@ const onDrop = (event: DragEvent) => {
     class="hero-slot-wrapper"
     @mouseenter="showTooltip = true"
     @mouseleave="showTooltip = false"
-    draggable="true"
+    :draggable="!!props.hero"
     @dragstart="onDragStart"
     @dragend="onDragEnd"
     @dragover="onDragOver"
